@@ -1,0 +1,66 @@
+# Build #
+#########
+dist
+docker-dist
+build-stats
+coverage
+typings
+docs
+.tmp
+**/*.ngfactory.ts
+**/*.css.ts
+**/*.css.shim.ts
+tsconfig.test.json
+tsconfig.dev.json
+tsconfig.prod.json
+
+# Node #
+########
+node_modules
+package-lock.json
+typings
+
+# IDE #
+#######
+*.sublime-project
+*.sublime-workspace
+.idea
+.*.swp
+*~
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.err
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db
