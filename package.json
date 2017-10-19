@@ -2,9 +2,9 @@
   "name": "seatgeek-api-wrapper",
   "version": "1.0.0",
   "description": "",
-  "main": "app/index.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./app/index.ts",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
     "start": "npm run build:live",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,13 +12,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^8.0.44",
+    "@types/express": "^4.0.37",
     "@types/got": "^7.1.4",
+    "@types/node": "^8.0.44",
+    "@types/request-ip": "0.0.31",
     "nodemon": "^1.12.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.5.3"
   },
   "dependencies": {
-    "got": "^7.1.0"
+    "express": "^4.16.2",
+    "got": "^7.1.0",
+    "request-ip": "^2.0.2"
   }
 }
