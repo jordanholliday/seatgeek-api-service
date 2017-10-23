@@ -15,11 +15,13 @@ function prettifyEvents(events: Event[]): any[] {
 				title: e.title,
 				url: e.url,
 				datetime: e.datetime_utc,
+				timestamp: new Date(e.datetime_utc).getTime(),
 				venue: e.venue.name,
 				city: e.venue.city,
 				minPrice: e.stats.lowest_price,
 				listingCount: e.stats.listing_count
 			}
 		})
-		.sort((event1, event2) => +event1.minPrice - +event2.minPrice);
+		.filter((event) => event.timestamp != null)
+		.sort((event1, event2) => event1.timestamp - event2.timestamp);
 }

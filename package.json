@@ -5,6 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts",
+    "deploy": "now -e SEATGEEK_READ_KEY=@seatgeek-read-key",
     "start": "npm run build:live",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
   },
   "dependencies": {
     "express": "^4.16.2",
-    "got": "^7.1.0"
+    "got": "^7.1.0",
+    "now": "^8.3.10"
   }
 }

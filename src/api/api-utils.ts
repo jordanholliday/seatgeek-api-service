@@ -1,12 +1,12 @@
 import * as got from "got";
 
 const apiUrl: string = "https://api.seatgeek.com/2/"
-const accessToken: string = "client_id=NTE2MzY1NnwxNTA4Mjg1MjA1LjY3";
+const accessToken: string = `client_id=${ process.env.SEATGEEK_READ_KEY }`;
 
 export async function get<T>(
     path: string,
     query: string[] = [],
-    parser?: (raw: any) => T[] 
+    parser?: (raw: any) => T[]
 ): Promise<T[]> {
     const queryString: string = [accessToken, ...query].join("&");
     const res = await got(`${ apiUrl }${ path }?${ queryString }`);
