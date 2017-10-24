@@ -1,5 +1,3 @@
-> a microservice to proxy the SeatGeek API
-
 ### Deploy via `now`
 
 First get a SeatGeek read key [here](https://seatgeek.com/account/develop). Then:
@@ -8,6 +6,7 @@ First get a SeatGeek read key [here](https://seatgeek.com/account/develop). Then
 $   now secrets add seatgeek-read-key YOUR_READ_KEY
 $   npm run deploy
 ```
+
 
 ### Append an partner ID to event urls 
 
