@@ -5,25 +5,25 @@ import * as url from "url";
 import { EventsApi } from "./api";
 import { Event } from "./models";
 
-const eventsApi = new EventsApi();
-const server = express();
-server.get("", requestHandler).listen(3000);
+express()
+	.get("", requestHandler)
+	.listen(3000);
 
 async function requestHandler(req: IncomingMessage, res: ServerResponse): Promise<void> {
-    let events;
+	const eventsApi = new EventsApi();
     try {
-        events = await eventsApi.get(getParamsFromRequest(req));
+        const response = await eventsApi.get(getParamsFromRequest(req));
+		res.end(JSON.stringify(response));
     } catch (e) {
         res.writeHead(500);
         return res.end();
     }
-    res.end(JSON.stringify(events));
 }
 
 function getParamsFromRequest(req: IncomingMessage): string[] {
 	const queryParams = url.parse(req.url!, true).query;
 	return [
-		"per_page=100",
+		"per_page=50",
 		...Object.keys(queryParams).map((key) => `${ getQueryKey(key) }=${ queryParams[key] }`)
 	];
 }
@@ -34,6 +34,8 @@ function getQueryKey(key: string): string {
 			return "lowest_price.lte";
 		case "date":
 			return "datetime_utc.lte";
+		case "zip":
+			return "geoip";
 		default:
 			return key;
 	}
