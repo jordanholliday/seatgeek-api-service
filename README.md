@@ -4,6 +4,7 @@ Currently returns only events (not teams, venues, taxonomies, etc).
 All query params pertaining to events described [here](http://platform.seatgeek.com/) should work. For convenience there are several param aliases:
 - `date` -> `datetime_utc.lte`
 - `price` -> `lowest_price.lte`
+- `ps` -> `per_page`
 - `zip` -> `geoip`
 
 ## Deploy via `now`

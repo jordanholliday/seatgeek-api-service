@@ -22,10 +22,7 @@ async function requestHandler(req: IncomingMessage, res: ServerResponse): Promis
 
 function getParamsFromRequest(req: IncomingMessage): string[] {
 	const queryParams = url.parse(req.url!, true).query;
-	return [
-		"per_page=50",
-		...Object.keys(queryParams).map((key) => `${ getQueryKey(key) }=${ queryParams[key] }`)
-	];
+	return Object.keys(queryParams).map((key) => `${ getQueryKey(key) }=${ queryParams[key] }`);
 }
 
 function getQueryKey(key: string): string {
@@ -36,6 +33,8 @@ function getQueryKey(key: string): string {
 			return "datetime_utc.lte";
 		case "zip":
 			return "geoip";
+		case "ps":
+			return "per_page";
 		default:
 			return key;
 	}
