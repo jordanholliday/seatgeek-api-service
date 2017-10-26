@@ -1,13 +1,14 @@
 import * as express from "express";
+import * as cors from "cors";
 import { IncomingMessage, ServerResponse } from "http";
 import * as url from "url";
 
 import { EventsApi } from "./api";
 import { Event } from "./models";
 
-express()
-	.get("", requestHandler)
-	.listen(3000);
+const app = express();
+app.use(cors());
+app.get("", requestHandler).listen(3000);
 
 async function requestHandler(req: IncomingMessage, res: ServerResponse): Promise<void> {
 	const eventsApi = new EventsApi();
